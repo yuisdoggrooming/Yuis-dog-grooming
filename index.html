@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yui's Dog Grooming | Wahroonga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --blue: #D0E8F8; --navy: #1A4D6D; --pink: #ff85a2; --white: #ffffff; --text-green: #4CAF50; }
+        
+        * { box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #fdfdfd; color: var(--navy); padding-bottom: 90px; }
+        
+        nav {
+            background: var(--white);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        nav a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.85rem; }
+        
+        .hero-section { background-color: var(--blue); text-align: center; padding: 20px 15px; }
+        .hero-section img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .hero-text h1 { margin: 15px 0 5px; font-size: 1.7rem; }
+
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+
+        /* Dashboard Row */
+        .dash-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+        .dash-card { background: white; padding: 15px 5px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .dash-card h4 { margin: 0; font-size: 0.85rem; color: var(--pink); }
+        .dash-card p { margin: 5px 0 0; font-size: 0.65rem; }
+
+        /* Price Cards */
+        .price-card { background: white; border-radius: 25px; padding: 20px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--blue); }
+        .price-card h3 { margin: 0 0 15px; font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .price-table { width: 100%; border-collapse: collapse; }
+        .price-table td { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.9rem; }
+        .price-val { font-weight: 600; text-align: right; }
+
+        /* Sticky Action Bar */
+        .sticky-contact {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 15px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+            z-index: 2000;
+        }
+        .contact-btn {
+            text-align: center;
+            padding: 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .btn-call { background-color: var(--navy); }
+        .btn-text { background-color: var(--text-green); }
+        .contact-btn:active { transform: scale(0.96); }
+
+        footer { text-align: center; padding: 40px 20px; background: #f4f4f4; }
+        .profile-img { width: 80
