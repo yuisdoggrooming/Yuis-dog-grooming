@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yui's Dog Grooming - Wahroonga NSW</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #eef6f9;
+}
+
+.hero {
+  background: #7faec4;
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.button {
+  background: white;
+  color: #4b7c94;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px;
+  width: 260px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.about {
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.contact {
+  background: #7faec4;
+  color: white;
+  padding: 50px 20px;
+}
+
+input, select {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 220px;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: #4b7c94;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <h1>Yui’s Dog Grooming 🐶</h1>
+  <p>Professional, gentle grooming in Wahroonga, NSW</p>
+  <p>Serving Wahroonga & surrounding areas</p>
+  <a href="#booking" class="button">Book Appointment</a>
+</div>
+
+<div class="section">
+  <h2>Our Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🛁 Wash & Dry</h3>
+      <p>Small: $50+</p>
+      <p>Medium: $60+</p>
+      <p>Large: $70+</p>
+    </div>
+
+    <div class="card">
+      <h3>✂️ Wash & Tidy</h3>
+      <p>Small: $65+</p>
+      <p>Medium: $75+</p>
+      <p>Large: $85+</p>
+    </div>
+
+    <div class="card">
+      <h3>🐩 Full Groom</h3>
+      <p>Small: $100+</p>
+      <p>Medium: $120+</p>
+      <p>Large: $140+</p>
+    </div>
+  </div>
+</div>
+
+<div class="section about">
+  <h2>About Yui</h2>
+  <p>
+    Hi, I’m Yui! I’m based in Wahroonga and provide calm, stress-free grooming
+    for your beloved dogs. Every pet is treated with patience, kindness, and care.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Additional Services</h2>
+  <p>De-matting: $20+</p>
+  <p>De-shedding: $20+</p>
+  <p>Face trim: $20+</p>
+  <p>Anal gland: $10</p>
+</div>
+
+<div class="section">
+  <h2>Why Choose Us?</h2>
+  <p>✔ Gentle & patient handling</p>
+  <p>✔ Clean, safe environment</p>
+  <p>✔ Local Wahroonga service</p>
+  <p>✔ Personal one-on-one care</p>
+</div>
+
+<div class="contact" id="booking">
+  <h2>Book Appointment</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name" required><br>
+
+    <select required>
+      <option>Dog Size</option>
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Large</option>
+    </select><br>
+
+    <select required>
+      <option>Service</option>
+      <option>Wash & Dry</option>
+      <option>Wash & Tidy</option>
+      <option>Full Groom</option>
+    </select><br>
+
+    <input type="date" required><br>
+
+    <button type="submit">Request Booking</button>
+  </form>
+</div>
+
+<div class="footer">
+  📍 Wahroonga, NSW | 📞 Contact via phone or Instagram
+</div>
+
+</body>
+</html>
