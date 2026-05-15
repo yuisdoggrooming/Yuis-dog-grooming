@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yui's Dog Grooming | Wahroonga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --blue: #D0E8F8; --navy: #1A4D6D; --pink: #ff85a2; --white: #ffffff; --text-green: #4CAF50; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #fdfdfd; color: var(--navy); padding-bottom: 100px; }
+        
+        /* Banner Area */
+        .hero-section { background-color: var(--blue); text-align: center; padding: 20px 15px; }
+        .hero-section img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        .header-text { text-align: center; margin-bottom: 30px; }
+
+        /* Price Cards */
+        .price-card { background: white; border-radius: 25px; padding: 20px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--blue); }
+        .price-card h3 { margin: 0 0 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .price-table { width: 100%; border-collapse: collapse; }
+        .price-table td { padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 0.95rem; }
+        .price-val { font-weight: 600; text-align: right; }
+
+        /* Sticky Action Bar */
+        .sticky-contact { position: fixed; bottom: 0; width: 100%; background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; box-shadow: 0 -5px 15px rgba(0,0,0,0.08); z-index: 2000; }
+        .contact-btn { text-align: center; padding: 16px; border-radius: 14px; text-decoration: none; color: white; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-call { background-color: var(--navy); }
+        .btn-text { background-color: var(--text-green); }
+
+        footer { text-align: center; padding: 40px 20px; background: #f4f4f4; }
+        .profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <img src="dog3.jpg" alt="Yui's Dog Grooming">
+        <div class="header-text">
+            <h1 style="margin: 15px 0 5px;">Yui's Dog Grooming</h1>
+            <p style="margin:0;">📍 5/8-14 Isis St, Wahroonga</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="prices">
+            <div class="price-card">
+                <h3>Full Groom</h3>
+                <table class="price-table">
+                    <tr><td>Small Dog</td><td class="price-val">$100</td></tr>
+                    <tr><td>Medium Dog</td><td class="price-val">$120</td></tr>
+                    <tr><td>Large Dog</td><td class="price-val">$140</td></tr>
+                </table>
+            </div>
+
+            <div class="price-card">
+                <h3>Wash & Tidy</h3>
+                <table class="price-table">
+                    <tr><td>Small Dog</td><td class="price-val">$65</td></tr>
+                    <tr><td>Medium Dog</td><td class="price-val">$75</td></tr>
+                    <tr><td>Large Dog</td><td class="price-val">$85</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p><strong>10% OFF YOUR FIRST VISIT</strong></p>
+            <img src="Untitled design 2.png" alt="Contact QR" style="width: 120px;">
+        </div>
+    </div>
+
+    <div class="sticky-contact">
+        <a href="tel:0468415356" class="contact-btn btn-call">📞 CALL</a>
+        <a href="sms:0468415356" class="contact-btn btn-text">💬 TEXT</a>
+    </div>
+
+    <footer>
+        <img src="dog2.jpg" alt="Yui" class="profile-img">
+        <p>© 2026 Yui's Dog Grooming<br>Wahroonga, NSW</p>
+        <p><a href="https://www.instagram.com/yuisdoggrooming" style="color:var(--navy);">Follow on Instagram</a></p>
+    </footer>
+
+</body>
+</html>
