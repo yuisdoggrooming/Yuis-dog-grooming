@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yui’s Dog Grooming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fffaf5;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(45deg, #ff9a9e, #ff6f91);
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 2.2em;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #ff6f91;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.08);
+  background: #ff3e6c;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* PRICING */
+.pricing {
+  text-align: center;
+  padding: 40px;
+}
+
+.price-box {
+  display: inline-block;
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* BOOKING FORM */
+.booking {
+  padding: 40px;
+  text-align: center;
+}
+
+.booking input, .booking textarea {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.booking button {
+  padding: 12px 20px;
+  border: none;
+  background: #ff6f91;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* MAP */
+.map {
+  padding: 20px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Yui’s Dog Grooming 🐶</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#pricing">Prices</a>
+    <a href="#booking">Book</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Luxury Grooming for Your Beloved Dog</h2>
+  <p>Professional care with love & style ✂️</p>
+
+  <a class="button" href="https://instagram.com/yuisdoggrooming" target="_blank">
+    DM on Instagram
+  </a>
+</section>
+
+<section id="gallery" class="gallery">
+  <img src="dog1.jpg">
+  <img src="dog2.jpg">
+  <img src="dog3.jpg">
+</section>
+
+<section id="pricing" class="pricing">
+  <h2>Pricing</h2>
+
+  <div class="price-box">
+    <h3>Small Dogs</h3>
+    <p>$50 - $70</p>
+  </div>
+
+  <div class="price-box">
+    <h3>Medium Dogs</h3>
+    <p>$70 - $90</p>
+  </div>
+
+  <div class="price-box">
+    <h3>Large Dogs</h3>
+    <p>$90 - $120</p>
+  </div>
+</section>
+
+<section id="booking" class="booking">
+  <h2>Book Appointment</h2>
+
+  <form action="https://formspree.io/f/yourformid" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Dog breed, size, preferred date..." required></textarea><br>
+    <button type="submit">Send Booking Request</button>
+  </form>
+
+  <p>Or message us on Instagram for faster booking</p>
+</section>
+
+<section class="map">
+  <h2>📍 Sydney Location</h2>
+  <iframe
+    src="https://www.google.com/maps?q=Sydney&output=embed"
+    width="90%" height="300" style="border:0; border-radius:15px;">
+  </iframe>
+</section>
+
+<footer>
+  © 2026 Yui’s Dog Grooming | Sydney
+</footer>
+
+</body>
+</html>
