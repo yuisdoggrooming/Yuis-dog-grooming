@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yui's Dog Grooming | Boutique Studio Wahroonga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --bg-light: #fbfbfc;
+            --soft-blue: #E3F2FD; 
+            --navy-dark: #112D42; 
+            --accent-pink: #ff85a2; 
+            --card-white: #ffffff;
+            --text-muted: #556E80;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg-light);
+            color: var(--navy-dark); 
+            padding-bottom: 120px; 
+            scroll-behavior: smooth;
+        }
+
+        /* Boutique Navigation */
+        nav {
+            background: rgba(251, 251, 252, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: var(--navy-dark); font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-left: 20px; }
+
+        /* Elegant Hero Section */
+        .hero { text-align: center; padding: 25px 20px; background: linear-gradient(180deg, var(--soft-blue) 0%, var(--bg-light) 100%); }
+        .hero img { width: 100%; max-width: 600px; border-radius: 24px; box-shadow: 0 12px 40px rgba(17, 45, 66, 0.08); }
+        
+        .tagline { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; font-weight: 400; margin: 25px 0 5px; color: var(--navy-dark); }
+        .sub-tagline { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin: 0; color: var(--text-muted); font-weight: 400; }
+
+        .container { max-width: 750px; margin: auto; padding: 20px; }
+
+        /* Boutique Intro Statement */
+        .intro-box { text-align: center; padding: 40px 10px; margin-bottom: 20px; }
+        .intro-box h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 15px; font-weight: 600; }
+        .intro-box p { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); font-weight: 300; max-width: 580px; margin: 0 auto; }
+
+        /* Clean Service Menu Layout */
+        .menu-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; text-align: center; margin-bottom: 35px; font-weight: 600; letter-spacing: 0.5px; }
+        
+        .menu-section { margin-bottom: 40px; }
+        .menu-section-header { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid rgba(0, 0, 0, 0.08); padding-bottom: 8px; margin-bottom: 15px; font-weight: 600; }
+
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; font-size: 0.95rem; }
+        .item-name { font-weight: 400; }
+        .item-dots { flex-grow: 1; border-bottom: 1px dashed rgba(0, 0, 0, 0.1); margin: 0 10px; position: relative; top: -4px; }
+        .item-price { font-weight: 600; letter-spacing: 0.5px; }
+        .item-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: -8px; margin-bottom: 10px; font-weight: 300; }
+
+        /* --- NEW: Boutique Grooming Gallery --- */
+        .gallery-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; text-align: center; margin: 50px 0 25px; font-weight: 600; }
+        .grooming-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            background: #eee;
+            aspect-ratio: 1 / 1; /* Makes images clean squares */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Elegant Testimonial Cutout */
+        .testimonial { background: var(--card-white); padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.02); margin: 40px 0; }
+        .quote { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; line-height: 1.6; margin-bottom: 15px; }
+        .author { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+
+        /* Floating Minimalist Action Pill */
+        .action-pill {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 380px;
+            background: var(--navy-dark);
+            display: flex;
+            padding: 8px;
+            border-radius: 100px;
+            box-shadow: 0 15px 35px rgba(17, 45, 66, 0.25);
+            z-index: 2000;
+        }
+        .action-btn { flex: 1; text-align: center; padding: 14px; color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        .btn-sep { width: 1px; background: rgba(255,255,255,0.15); margin: 8px 0; }
+
+        /* Footer Element */
+        footer { text-align: center; padding: 60px 20px 40px; background: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.03); }
+        .profile { width: 85px; height: 85px; border-radius: 50%; border: 3px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.05); margin-bottom: 20px; object-fit: cover; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+        .footer-sub { font-size: 0.8rem; color: var(--text-muted); margin: 0; font-weight: 300; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">Yui's Studio</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <img src="dog3.jpg" alt="Yui's Dog Grooming Sanctuary">
+        <h1 class="tagline">Boutique Grooming. Gentle Care.</h1>
+        <p class="sub-tagline">By Appointment Only • Wahroonga</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="intro-box">
+            <h2>Quiet. Refined. Stress-Free.</h2>
+            <p>A specialized premium home grooming sanctuary dedicated entirely to a low-stress, relaxing atmosphere. With over 15 years of expert experience, care is customized strictly one-on-one for your companion's total peace of mind.</p>
+        </section>
+
+        <section id="menu">
+            <h2 class="menu-title">The Treatment Menu</h2>
+            
+            <div class="menu-section">
+                <div class="menu-section-header">Core Services</div>
+                
+                <div class="menu-item">
+                    <span class="item-name">Full Groom</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">From $100</span>
+                </div>
+                <div class="item-desc">Premium style haircut tailored specifically to breed standards or custom lifestyle profiles.</div>
+
+                <div class="menu-item">
+                    <span class="item-name">Wash & Tidy</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">From $65</span>
+                </div>
+                <div class="item-desc">Luxury wash, clean blow dry, sanitary hygiene clip, paw pad trimming, and neat face shape balancing.</div>
+
+                <div class="menu-item">
+                    <span class="item-name">Wash & Dry</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">From $50</span>
+                </div>
+                <div class="item-desc">Therapeutic essential bath session finished perfectly with expert hair de-fluffing and blowout preparation.</div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-header">Specialty Enhancements</div>
+                
+                <div class="menu-item">
+                    <span class="item-name">Special Styled Premium Cut</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">From $135</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">De-shedding Therapy</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">+$20</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Hand Scissoring Detailed Edge</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">+$20</span>
+                </div>
+
+                <div class="menu-item">
+                    <span class="item-name">Anal Gland Maintenance</span>
+                    <span class="item-dots"></span>
+                    <span class="item-price">$10</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="gallery-title">Studio Work</h2>
+            <div class="grooming-gallery">
+                <div class="gallery-item">
+                    <img src="1000008860.jpg" alt="Grooming Client Showcase">
+                </div>
+                <div class="gallery-item">
+                    <img src="1000008861.jpg" alt="Grooming Client Showcase">
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="quote">"Beautifully tranquil setting and wonderful gentle care. Every dog leaves looking and feeling pristine without the typical salon anxiety."</div>
+            <div class="author">Client Recommendation</div>
+        </section>
+
+        <section style="text-align: center; margin: 40px 0 20px;">
+            <p style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px;">Studio Sanctuary Location</p>
+            <p style="margin: 0; font-weight: 400; font-size: 1.05rem;">📍 Suite 5, 8-14 Isis Street, Wahroonga NSW</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); font-style: italic;">Enjoy 10% off your companion's introductory salon arrival appointment.</p>
+        </section>
+    </div>
+
+    <div class="action-pill">
+        <a href="tel:0468415356" class="action-btn">Call Studio</a>
+        <div class="btn-sep"></div>
+        <a href="sms:0468415356" class="action-btn">Text Request</a>
+    </div>
+
+    <footer>
+        <img src="dog2.jpg" alt="Yui" class="profile">
+        <div class="footer-logo">Yui's Dog Grooming</div>
+        <p class="footer-sub">Boutique One-on-One Care • Established Experience</p>
+        <p style="font-size: 0.75rem; margin-top: 25px; opacity: 0.5;">Card and Electronic Terminal Payments Welcomed 💳</p>
+        <p style="font-size: 0.8rem; margin-top: 15px;"><a href="https://www.instagram.com/yuisdoggrooming?igsh=MTN4a2R6MWp6ZjlhOQ==" style="color: var(--navy-dark); text-decoration: none; font-weight: 600;" target="_blank">Instagram: @yuisdoggrooming</a></p>
+    </footer>
+
+</body>
+</html>
