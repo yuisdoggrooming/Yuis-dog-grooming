@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yui's Dog Grooming | Private Home Salon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Color Palette */
+        :root {
+            --main-blue: #96C2EC;
+            --accent-beige: #E29D52;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F8F9FA;
+        }
+
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Blue background with custom SVG Paw Print Pattern */
+            background-color: var(--main-blue);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.25' d='M39.6 44.4c-4.9.4-9.3-3.2-10.4-8.3-.9-4.3 1.2-8.6 5.2-10.4 4.5-2 9.7-.1 11.9 4.3 2 4 1 9-2.5 11.7-1.3 1-2.7 2-4.2 2.7zm20.8 0c-1.5-.7-2.9-1.7-4.2-2.7-3.5-2.7-4.5-7.7-2.5-11.7 2.2-4.4 7.4-6.3 11.9-4.3 4 1.8 6.1 6.1 5.2 10.4-1.1 5.1-5.5 8.7-10.4 8.3zm-31.5-13.4c-3.6 2-8 .6-9.7-3.1-1.6-3.5-.1-7.7 3.3-9.5 3.5-1.9 7.7-.6 9.6 2.8 1.8 3.3.4 7.6-3.2 9.8zm42.2 0c-3.6-2.2-5-6.5-3.2-9.8 1.9-3.4 6.1-4.7 9.6-2.8 3.4 1.8 4.9 6 3.3 9.5-1.7 3.7-6.1 5.1-9.7 3.1zM50 49c-9.1 0-16.7 6.1-19.1 14.8-1.5 5.5.1 11.4 4 15.6 3.5 3.7 8.5 5.6 13.6 5.6h3c5.1 0 10.1-1.9 13.6-5.6 3.9-4.2 5.5-10.1 4-15.6-2.4-8.7-10-14.8-19.1-14.8z'/%3E%3C/svg%3E");
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--main-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-beige);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(226, 157, 82, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #c98541;
+            transform: translateY(-2px);
+        }
+
+        /* Additional button colors for the contact section */
+        .btn-blue {
+            background-color: var(--main-blue);
+            box-shadow: 0 4px 10px rgba(150, 194, 236, 0.4);
+        }
+
+        .btn-blue:hover {
+            background-color: #85b1db;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-buttons .btn {
+            min-width: 160px;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--main-blue);
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 0 60px;
+            text-align: center;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            color: var(--main-blue);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+            padding: 60px 40px;
+            border-radius: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        /* Transformations Section */
+        .transformations {
+            background-color: var(--white);
+            padding: 60px 40px;
+            border-radius: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+
+        .transform-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .transform-pair {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 30px;
+            border: 4px solid var(--main-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .transform-pair:hover {
+            transform: translateY(-5px);
+        }
+
+        .transform-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .transform-img-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .transform-img-wrapper img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+        .label {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 0 0 60px;
+            text-align: center;
+        }
+        
+        .services-header {
+            background-color: var(--white);
+            padding: 20px 40px;
+            border-radius: 40px;
+            margin-bottom: 40px;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+
+        .services h2 {
+            margin-bottom: 0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--main-blue);
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 8px;
+        }
+
+        .service-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Groomer Profile */
+        .profile {
+            background-color: var(--white);
+            padding: 60px 40px;
+            border-radius: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+
+        .profile h2 {
+            color: var(--main-blue);
+        }
+
+        .profile-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 8px solid var(--main-blue);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.4);
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .profile-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-beige);
+        }
+
+        .profile-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 0 0 100px;
+            text-align: center;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-top: 15px;
+            color: var(--main-blue);
+        }
+
+        .qr-code {
+            margin: 20px 0;
+        }
+
+        .qr-code img {
+            max-width: 180px;
+            border-radius: 16px;
+            border: 2px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2rem; }
+            .profile-flex { flex-direction: column; text-align: center; }
+            .profile-img { max-width: 250px; height: 250px; }
+            .navbar { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            .contact-card { padding: 30px 20px; }
+            .transform-images { flex-direction: column; }
+            .contact-buttons { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">YUI'S DOG GROOMING</div>
+            <a href="#contact" class="btn">Book an Appointment</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-banner">
+                <img src="dog3.jpg" alt="Yui's Dog Grooming Banner" onerror="this.style.display='none'">
+            </div>
+            <div class="hero-text">
+                <h1>A Calm & Relaxing Grooming Experience for Your Best Friend</h1>
+                <p>A private, one-on-one home salon where your dog feels safe, loved, and completely pampered.</p>
+                <a href="#services" class="btn">View Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about container">
+        <h2>Welcome to Our Quiet Retreat</h2>
+        <p>At Yui's Dog Grooming, we believe every dog deserves a spa day tailored to their unique needs. Operating exclusively as a private, cage-free home salon, we focus entirely on one dog at a time. This quiet, gentle approach ensures a completely stress-free environment, making it especially beneficial for senior dogs or anxious pups who might feel overwhelmed in a busy, loud commercial studio. Your furry best friend will receive undivided attention and top-tier care.</p>
+    </section>
+
+    <section class="transformations container">
+        <h2>Stunning Transformations</h2>
+        <div class="transform-gallery">
+            
+            <div class="transform-pair">
+                <div class="transform-images">
+                    <div class="transform-img-wrapper">
+                        <img src="1000008785.jpg" alt="Before Grooming" onerror="this.style.display='none'">
+                        <span class="label">Before</span>
+                    </div>
+                    <div class="transform-img-wrapper">
+                        <img src="1000008792.jpg" alt="After Grooming" onerror="this.style.display='none'">
+                        <span class="label">After</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform-pair">
+                <div class="transform-images">
+                    <div class="transform-img-wrapper">
+                        <img src="1000008332.jpg" alt="Before Grooming" onerror="this.style.display='none'">
+                        <span class="label">Before</span>
+                    </div>
+                    <div class="transform-img-wrapper">
+                        <img src="1000008365.png" alt="After Grooming" onerror="this.style.display='none'">
+                        <span class="label">After</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform-pair">
+                <div class="transform-images">
+                    <div class="transform-img-wrapper">
+                        <img src="1000007658.jpg" alt="Before Grooming" onerror="this.style.display='none'">
+                        <span class="label">Before</span>
+                    </div>
+                    <div class="transform-img-wrapper">
+                        <img src="1000007655.jpg" alt="After Grooming" onerror="this.style.display='none'">
+                        <span class="label">After</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform-pair">
+                <div class="transform-images">
+                    <div class="transform-img-wrapper">
+                        <img src="1000007493.jpg" alt="Before Grooming" onerror="this.style.display='none'">
+                        <span class="label">Before</span>
+                    </div>
+                    <div class="transform-img-wrapper">
+                        <img src="1000007506.jpg" alt="After Grooming" onerror="this.style.display='none'">
+                        <span class="label">After</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transform-pair">
+                <div class="transform-images">
+                    <div class="transform-img-wrapper">
+                        <img src="1000006843.jpg" alt="Before Grooming" onerror="this.style.display='none'">
+                        <span class="label">Before</span>
+                    </div>
+                    <div class="transform-img-wrapper">
+                        <img src="1000006869.jpg" alt="After Grooming" onerror="this.style.display='none'">
+                        <span class="label">After</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="services container">
+        <div class="services-header">
+            <h2>Services & Pricing</h2>
+        </div>
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <h3>Wash & Dry</h3>
+                <div class="price-row"><span>Small (up to 10kg)</span> <span>$50~</span></div>
+                <div class="price-row"><span>Medium (up to 15kg)</span> <span>$60~</span></div>
+                <div class="price-row"><span>Large (up to 20kg)</span> <span>$70~</span></div>
+                <p class="service-desc">Includes: Wash, blow dry, nail clipping, and ear cleaning.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Wash & Tidy</h3>
+                <div class="price-row"><span>Small (up to 10kg)</span> <span>$65~</span></div>
+                <div class="price-row"><span>Medium (up to 15kg)</span> <span>$75~</span></div>
+                <div class="price-row"><span>Large (up to 20kg)</span> <span>$85~</span></div>
+                <p class="service-desc">Includes: Wash, blow dry, nail clipping, ear cleaning, paw trim, and light face trim.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Full Groom</h3>
+                <div class="price-row"><span>Small (up to 10kg)</span> <span>$100~</span></div>
+                <div class="price-row"><span>Medium (up to 15kg)</span> <span>$120~</span></div>
+                <div class="price-row"><span>Large (up to 20kg)</span> <span>$140~</span></div>
+                <div class="price-row" style="margin-top: 15px;"><span>Special Styled Haircut</span> <span>$135~</span></div>
+            </div>
+
+            <div class="service-card">
+                <h3>Additional Spa</h3>
+                <div class="price-row"><span>De-shed Treatment</span> <span>$20~</span></div>
+                <div class="price-row"><span>De-matt / Brush out</span> <span>$20~</span></div>
+                <div class="price-row"><span>Hand Scissor</span> <span>$20~</span></div>
+                <div class="price-row"><span>Face Trim</span> <span>$20~</span></div>
+                <div class="price-row"><span>Anal Gland</span> <span>$10</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="profile container">
+        <h2>Meet Your Groomer</h2>
+        <div class="profile-flex">
+            <div class="profile-img">
+                <img src="dog2.jpg" alt="Yui - Certified Dog Groomer" onerror="this.style.display='none'">
+            </div>
+            <div class="profile-text">
+                <h3>Hi, I'm Yui!</h3>
+                <p>I am a certified professional dog groomer with over 15 years of industry experience. I am deeply passionate about providing high-quality care using low-stress handling techniques.</p>
+                <p>I specifically designed my home-based studio to be a peaceful, customized retreat for your pets. I specialize in premium de-shedding treatments and comforting grooms for senior dogs.</p>
+                <p>When I'm not transforming pups, you can usually find me baking treats in the kitchen or spending time with my own beautiful Border Collie, Lily!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact container">
+        <div class="contact-card">
+            <h2>Get in Touch</h2>
+            <p>Ready to treat your dog to a relaxing spa day?</p>
+            
+            <div class="contact-info">
+                <strong>Location:</strong>
+                5/8-14 Isis st, Wahroonga, NSW
+
+                <strong>Phone:</strong>
+                <a href="tel:0468415356" style="color: var(--text-dark); font-weight: 600; font-size: 1.2rem; display: block; margin-top: 5px;">0468 415 356</a>
+                
+                <strong>Follow us on Instagram:</strong>
+                <a href="https://instagram.com/yuisdoggrooming" target="_blank" style="color: var(--accent-beige); font-weight: 600; display: block; margin-top: 5px;">@yuisdoggrooming</a>
+            </div>
+
+            <div class="qr-code">
+                <img src="IMG_20260515_212842_318.png" alt="Instagram QR Code" onerror="this.style.display='none'">
+            </div>
+
+            <div class="contact-buttons">
+                <a href="tel:0468415356" class="btn btn-blue">📞 Call Now</a>
+                <a href="sms:0468415356" class="btn btn-blue">💬 Text Us</a>
+                <a href="https://instagram.com/yuisdoggrooming" target="_blank" class="btn">📱 Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yui's Dog Grooming. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
